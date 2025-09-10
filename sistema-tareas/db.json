@@ -1,2 +1,12 @@
-{"tareas":[]
+{
+    "tareas":[
+        {
+            "id":"1",
+            "dato":"Prueba"
+        },
+        {
+            "id":"2",
+            "dato":"Prueba 2"
+        }
+]
 }

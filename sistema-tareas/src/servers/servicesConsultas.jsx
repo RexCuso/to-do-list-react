@@ -1,8 +1,8 @@
-async function getTareas () {
+async function getTareas() {
     
     try {
         
-        const response =await fetch("http://localhost:3001/Tareas",{
+        const response = await fetch("http://localhost:3001/tareas",{
         method:'GET',
         headers : {
             'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ async function getTareas () {
         throw error
     }
 }
-export{getTareas}
+
 
 
 
@@ -25,7 +25,7 @@ async function postTareas (consulta) {
     
     try {
         
-        const response =await fetch("http://localhost:3001/Tareas",{
+        const response =await fetch("http://localhost:3001/tareas",{
         method:'POST',
         headers : {
             'Content-Type': 'application/json' },
@@ -40,14 +40,14 @@ async function postTareas (consulta) {
         throw error
     }
 }
-export{postTareas}
+
 
 
 async function deleteTareas (id) {
     
     try {
         
-        const response =await fetch("http://localhost:3001/Tareas/"+ id,{
+        const response =await fetch("http://localhost:3001/tareas/"+ id,{
         method:'DELETE',
         headers : {
             'Content-Type': 'application/json'
@@ -62,13 +62,13 @@ async function deleteTareas (id) {
         throw error
     }
 }
-export{deleteTareas}
+
 
 async function putTareas (id, consulta) {
     
     try {
         
-        const response =await fetch("http://localhost:3001/Tareas/"+ id,{
+        const response =await fetch("http://localhost:3001/tareas/"+ id,{
         method:'PUT',
         headers : {
             'Content-Type': 'application/json'
@@ -81,4 +81,5 @@ async function putTareas (id, consulta) {
         throw error
     }
 }
-export{putTareas}
+
+export default {putTareas,deleteTareas,postTareas,getTareas}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { getTareas } from '../../servers/servicesConsultas';
-import { postTareas } from '../../servers/servicesConsultas';
+import './RegistroTareas.css'
+import ServicesConsultas from '../../servers/ServicesConsultas'
+
 
 function RegistroTareas() {
 const [tareas, setTareas] = useState("")
@@ -13,9 +14,9 @@ const fetchTareas = () => {
 };
 
 function BTguardar() {
+
     console.log("Tarea:", tareas);
     setTareas("");
-
 }
     
   return (

@@ -1,0 +1,20 @@
+#Mostrar{
+    background-color: blueviolet;
+    display: flex;
+    max-width: 40%;
+}
+
+#TR{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(0, 0, 0);
+}
+#TC{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(0, 0, 0);
+}
