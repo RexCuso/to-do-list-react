@@ -5,7 +5,9 @@ import { useState,useEffect } from 'react';
 
 
 function MostrarTareas() {
-  const [InfoTareas, setInfoTareas] = useState([])
+  const [InfoTareas, setInfoTareas] = useState([]);
+  const [tareasEditadas, settareasEditadas]= useState('');
+
     useEffect(() => {
     cargarTareas();
   }, []);
@@ -19,16 +21,27 @@ function MostrarTareas() {
     }
   };
 
+  const editarTarea = async (id) => {
+    if (!tareasEditadas.trim()) return;
+    try {
+      await ServicesConsultas.putTareas(id, {tareaTex: tareasEditadas});
+      settareasEditadas(''); 
+      cargarTareas
+    } catch (error) {
+      console.error("Error al editar la tarea :( :", error);
+    }
+  };
+
   const eliminarTarea = async (id) => {
     try {
       await ServicesConsultas.deleteTareas(id);
       cargarTareas(); 
     } catch (error) {
-      console.error("Error al eliminar tarea:", error);
+      console.error("Error al eliminar la tarea :( :", error);
     }
   };
 
-  cargarTareas()
+  
   return (
     /* area en donde se mostraran las tareas */
     <div>
@@ -38,13 +51,14 @@ function MostrarTareas() {
         <label htmlFor="TR">Tareas Registradas</label>
         <div id='TR'>
           <ul>{InfoTareas.map((item) => (
-              <li 
-              key={item.id}>
+              <li key={item.id}>
                 
-                {item.dato}
+                {item.tareaTex}
 
-                
-                <button onClick={eliminarTarea}>Eliminar</button>
+                <input type="text" placeholder= 'Edicion' value={tareasEditadas} onChange={(e) => settareasEditadas(e.target.value)}/>
+
+                <button onClick={() => editarTarea(item.id)}>Editar</button>
+                <button onClick={() => eliminarTarea(item.id)}>Eliminar</button>
               
               </li>
               ))}</ul>
@@ -52,7 +66,7 @@ function MostrarTareas() {
         
         {/* el id "TC" significa Tareas Completadas */}
         <label htmlFor="TC">Tareas Completadas</label>
-        <div id='TC'></div>
+        <div id='TC'><br /></div>
 
       </div>
     </div>
