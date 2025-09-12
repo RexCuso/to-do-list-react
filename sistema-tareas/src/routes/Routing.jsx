@@ -8,7 +8,7 @@ export default function Routing() {
     <div>
       <Router>
         <Routes>
-          <Route path='/PaginaTareas' element={<PaginaTareas/>}/>
+          <Route path='/' element={<PaginaTareas/>}/>
 
         </Routes>
       </Router>

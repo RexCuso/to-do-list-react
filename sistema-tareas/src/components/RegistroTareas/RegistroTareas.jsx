@@ -7,9 +7,8 @@ function RegistroTareas() {
 const [tareas, setTareas] = useState([]);
 
 /* constante para actualisar datos al cabiarlos en su valor en el input, 
-se ejecutara al hacer un cambio al valor del input {espero poder reutilisarla ;) }*/
-
-
+se ejecutara al hacer un cambio al valor del input {espero poder reutilisarla ;) } 
+{no pude y asta la tuve que borrar :( }*/
 /* const tareascambia = (e) => {
   setTareas(e.target.value)
 } */
